@@ -1,0 +1,69 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div class="background-color">
+  <div class="container">
+    <!-- Formulario para crear o actualizar un administrador -->
+    <form class="form" #adminForm="ngForm" (ngSubmit)="guardarAdministrador()">
+      <input type="hidden" name="id" [(ngModel)]="administrador.id">
+
+      <div class="form-column">
+        <label>Nombre:</label>
+        <input type="text" name="NombreAdmin" [(ngModel)]="administrador.NombreAdmin" required>
+      </div>
+
+      <div class="form-column">
+        <label>Correo:</label>
+        <input type="email" name="CorreoAdmin" [(ngModel)]="administrador.CorreoAdmin" required>
+      </div>
+
+      <div class="form-column">
+        <label>Contraseña:</label>
+        <input type="password" name="Contrasena" [(ngModel)]="administrador.Contrasena" required>
+      </div>
+
+      <div class="form-column">
+        <label>Región:</label>
+        <input type="text" name="Region" [(ngModel)]="administrador.Region" required>
+      </div>
+
+      <div class="form-column">
+        <label>
+          Root:
+          <input type="checkbox" name="root" [(ngModel)]="administrador.root" />
+        </label>
+      </div>
+      
+
+      <div class="form-column">
+        <button type="submit" >{{ modoEdicion ? 'Actualizar' : 'Crear' }} Administrador</button>
+      </div>
+    </form>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar administrador por nombre" [(ngModel)]="nombreBusqueda"> 
+      <button type="submit" (click)="buscarAdministrador()" >Buscar Administrador</button>
+    </div>
+    
+    <div>
+
+
+    <ul class="administradores-list">
+        <li class="administrador-item" *ngFor="let admin of administradores">
+          <div class="administrador-details">
+            <div class="administrador-info">
+              <div class="administrador-name">{{ admin.NombreAdmin }}</div>
+              <div class="administrador-data">Correo: {{ admin.CorreoAdmin }}</div>
+              <div class="administrador-data">Contraseña: {{ admin.Contrasena }}</div>
+              <div class="administrador-data">Región: {{ admin.Region }}</div>
+              <div class="administrador-data">Root: {{ admin.root }}</div>
+            </div>
+            <div class="administrador-buttons">
+              <button class="edit" (click)="editarAdministrador(admin)">Editar</button>
+              <button class="delete" (click)="eliminarAdministrador(admin.NombreAdmin)">Eliminar</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      
+      
+      

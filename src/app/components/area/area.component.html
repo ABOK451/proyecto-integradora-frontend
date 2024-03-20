@@ -1,0 +1,77 @@
+<app-navigation-bar></app-navigation-bar>
+
+
+<div class="solicitud">
+    <h1>Area</h1>
+    <div class="fil">
+      <h4>Filtros</h4>
+      <span class="material-symbols-outlined" style="font-size: 40px;">
+        tune
+        </span>
+    </div>
+</div>
+
+<div class="esp"></div>
+
+<div class="create-form-container">
+    <div class="create-button-container">
+        <button class="create-form-button" (click)="mostrarFormulario()">Nueva Área</button>
+      </div>
+    <div class="create-form">
+      <div *ngIf="mostrarNuevoArea" class="form-container">
+        <h2>Crear Nueva Área</h2>
+        <form (submit)="crearNuevaArea()" class="form-fields">
+          <div class="form-field">
+            <label for="nombreArea">Nombre de Área:</label>
+            <input type="text" id="nombreArea" [(ngModel)]="nuevaArea.NombreArea" name="nombreArea" required>
+          </div>
+          <div class="form-field">
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" [(ngModel)]="nuevaArea.Descripcion" name="descripcion" required></textarea>
+          </div>
+          <div class="form-field">
+            <button type="submit">Crear</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre de Área</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let areaItem of area; let i = index">
+          <tr *ngIf="i < consultasIniciales || mostrarTodasLasConsultas">
+            <td *ngIf="!areaItem.editando">{{ areaItem.NombreArea }}</td>
+            <td *ngIf="!areaItem.editando">{{ areaItem.Descripcion }}</td>
+            <td *ngIf="!areaItem.editando" class="actions">
+              <button class="edit" (click)="editarArea(areaItem)">Editar</button>
+              <button class="delete" (click)="eliminarArea(areaItem.NombreArea)">Eliminar</button>
+            </td>
+            <td *ngIf="areaItem.editando" colspan="3" class="edit-form" style="display: flex;">
+              <input type="text" id="nombreAreaEditado" [(ngModel)]="areaItem.NombreArea" name="nombreAreaEditado" required style="flex: 1;">
+              <textarea id="descripcionEditada" [(ngModel)]="areaItem.Descripcion" name="descripcionEditada" required style="flex: 1;"></textarea>
+              <button class="save" (click)="guardarEdicion(areaItem)" style="flex: 1;">Guardar</button>
+            </td>
+          </tr>
+        </ng-container>
+        <tr *ngIf="!mostrarTodasLasConsultas && area.length > consultasIniciales">
+          <td colspan="3">
+            <button (click)="mostrarTodasLasConsultas = true">Ver más</button>
+          </td>
+        </tr>
+        <tr *ngIf="!area || area.length === 0">
+          <td colspan="3">No hay información disponible</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

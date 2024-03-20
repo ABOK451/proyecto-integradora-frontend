@@ -1,0 +1,82 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div class="background-color">
+  <div class="container">
+    <!-- Formulario para crear o actualizar un contrato -->
+    <form class="form" #contratoForm="ngForm" (ngSubmit)="guardarContrato()">
+      <input type="hidden" name="id" [(ngModel)]="contrato._id">
+
+      <div class="form-column">
+        <label>Tipo de contrato:</label>
+        <input type="text" name="TipoContrato" [(ngModel)]="contrato.TipoContrato" required>
+      </div>
+
+      <div class="form-column">
+        <label>Días trabajados:</label>
+        <input type="number" name="DiasTrabajados" [(ngModel)]="contrato.DiasTrabajados" required>
+      </div>
+
+      <div class="form-column">
+        <label>Días descansados:</label>
+        <input type="number" name="DiasDescansados" [(ngModel)]="contrato.DiasDescansados" required>
+      </div>
+
+      <div class="form-column">
+        <label>Horas por día:</label>
+        <input type="number" name="HorasPorDia" [(ngModel)]="contrato.HorasPorDia" required>
+      </div>
+
+      <div class="form-column">
+        <label>Turnos de contrato:</label>
+        <div *ngFor="let turno of contrato.TurnosContrato; let i = index" class="turno">
+          <label>Turno {{i + 1}}</label>
+          <div>
+            <input type="time" name="inicio{{i}}" [(ngModel)]="contrato.TurnosContrato[i].inicio" required>
+            <span> - </span>
+            <input type="time" name="fin{{i}}" [(ngModel)]="contrato.TurnosContrato[i].fin" required>
+          </div>
+        </div>
+        <button type="button" (click)="agregarTurno()">Agregar Turno</button>
+      </div>
+
+      <div class="form-column">
+        <button type="submit">{{ modoEdicion ? 'Actualizar' : 'Crear' }} Contrato</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Tabla para visualizar los contratos -->
+<div>
+  <table class="contracts-table">
+    <thead>
+      <tr>
+        <th>Tipo de Contrato</th>
+        <th>Días Trabajados</th>
+        <th>Días Descansados</th>
+        <th>Horas por Día</th>
+        <th>Turnos de Contrato</th>
+        <th>Acciones</th> <!-- Columna para las acciones de editar y eliminar -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contrato of contratos">
+        <td>{{ contrato.TipoContrato }}</td>
+        <td>{{ contrato.DiasTrabajados }}</td>
+        <td>{{ contrato.DiasDescansados }}</td>
+        <td>{{ contrato.HorasPorDia }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let turno of contrato.TurnosContrato">
+              {{ turno.inicio }} - {{ turno.fin }}
+            </li>
+          </ul>
+        </td>
+        <td>
+          <button (click)="editarContrato(contrato)">Editar</button>
+          <button (click)="eliminarContrato(contrato.TipoContrato)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

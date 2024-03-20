@@ -1,0 +1,206 @@
+.material-symbols-outlined{
+    display: flex;
+    margin-left: auto;
+  }
+
+  .acc{
+    text-decoration: none;
+    right: 1.6%;
+    height: 15%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    color: #000000;
+  }
+  .not {
+    display: inline-block;
+    background-color: #011245;
+    position: fixed;
+    right: 0;
+    padding: 0.6em 1.5em;
+    text-decoration: none;
+}
+.app {
+    font-weight: 800;
+    font-size: 125%;
+  }
+  .top-logo {
+    background-color: #ffffff;
+    width: auto;
+    height: 90px;
+    display: flex;
+    margin: auto;
+  }
+
+  .top-bar, .sub-bar {
+    background-color: #011245;
+    color: white;
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: auto;
+    margin: auto;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+  .menu {
+    justify-content: center;
+    list-style: none;
+    display: flex;
+}
+
+.menu li:hover .menu-ver{
+  display: block;
+}
+
+.boton-adm,
+.boton-soli,
+.boton {
+    display: inline-block;
+    padding: 0.9em 2em;
+    background-color: #011245;
+    color: white;
+    text-decoration: none;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: none;
+}
+
+.boton-right {
+    display: inline-block;
+    padding: 0.9em 2em;
+    background-color: #011245;
+    color: white;
+    text-decoration: none;
+    border-left: 2px solid white;
+    border-right: 4px solid white;
+    border-top: none;
+    border-bottom: none;
+}
+
+.boton-left {
+    display: inline-block;
+    padding: 0.9em 2em;
+    background-color: #011245;
+    color: white;
+    text-decoration: none;
+    border-left: 4px solid white;
+    border-right: 2px solid white;
+    border-top: none;
+    border-bottom: none;
+}
+
+.boton-adm:hover,
+.boton-soli:hover,
+.boton-right:hover,
+.boton-left:hover,
+.boton:hover {
+    background-color: #003366;
+}
+
+/*Menu desplegable Usuario*/
+
+.menu-ver-acc {
+  top: 13%;
+  right: 0%;
+  display: none;
+  position: absolute;
+  background-color: #0098D4;
+  z-index: 101;
+}
+
+/* Estilos para las opciones del menú desplegable */
+.menu-ver-acc a {
+  color: #ffffff;
+  padding: 10px ;
+  text-decoration: none;
+  display: block;
+}
+
+.menu-ver-acc a:hover {
+  background-color: #57e5df;
+  color: #000000;
+}
+
+.menu-ver:hover .menu-ver-acc {
+  display: block;
+}
+
+
+/* Estilos para el contenido del menú desplegable */
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #0098D4;
+min-width: 160px;
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+z-index: 1;
+}
+
+/* Estilos para las opciones del menú desplegable */
+.dropdown-content a {
+color: #ffffff;
+padding: 12px 13px;
+text-decoration: none;
+display: block;
+}
+
+.dropdown-content a:hover {
+background-color: #57e5df;
+color: #000000;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+
+
+
+@media screen and (max-width: 690px) {
+  .boton-adm {
+      display: none; /* Oculta el botón "Solicitud" */
+  }
+  .menu {
+    flex-direction: column; /* Alinea los elementos en columna */
+    position: absolute;
+    top: 70px; /* Altura del menú cuando es desplegable */
+    right: 20px; /* Alineación a la derecha */
+    background-color: #011245;
+    z-index: 10;
+}
+
+.menu a {
+    display: block;
+    padding: 12px 20px;
+    border-bottom: 1px solid white;
+    color: white;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: #003366;
+}
+
+.not {
+    position: relative;
+}
+
+
+}
+
+/* Ocultar el botón "Administración" cuando el ancho de la pantalla es igual o menor a 900px */
+@media screen and (max-width: 900px) {
+  .boton-soli {
+      display: none; /* Oculta el botón "Administración" */
+  }
+}
+
+/* Ocultar el botón "Calendario" cuando el ancho de la pantalla es igual o menor a 1200px */
+@media screen and (max-width: 1040px) {
+  .boton {
+      display: none; /* Oculta el botón "Calendario" */
+  }
+}
+

@@ -1,0 +1,191 @@
+/* Estilos para el contenedor principal */
+.background-color {
+  background-color: #c1c0c0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0; /* Espacio alrededor del contenido */
+}
+
+.container {
+  width: 90%; /* Ancho del contenedor */
+  max-width: 1200px; /* Ancho máximo */
+  background-color: #ffffff;
+  padding: 20px; /* Espacio interno */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Estilos para el formulario */
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+}
+
+.form-column {
+  grid-column: span 1;
+}
+
+/* Estilos para los elementos del formulario */
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Efecto hover para los elementos de entrada y selección */
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover,
+input[type="date"]:hover,
+input[type="time"]:hover,
+select:hover {
+  border-color: #3498db;
+}
+
+/* Estilos para los botones */
+button {
+  background-color: #2839bc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #287bbc;
+}
+
+/* Estilos para la lista de administradores */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Estilos para los botones dentro de la lista */
+li button {
+  margin-right: 10px;
+}
+
+/* Estilos para la tabla principal */
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+  width: 60%; /* Anchura */
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  border: 1px solid #000000;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.table td.actions {
+  white-space: nowrap;
+}
+
+/* Estilos para el formulario de edición */
+.edit-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.edit-form input[type="text"],
+.edit-form textarea,
+.edit-form button {
+  flex: 1 0 0;
+  margin-right: 100px;
+}
+
+.save,
+.delete,
+.edit {
+  padding: 5px 10px;
+  background-color: #133393;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.save:hover,
+.delete:hover,
+.edit:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos adicionales */
+.administradores-list {
+  margin-top: 20px;
+}
+
+.solicitud {
+  background-color: #133393;
+  color: #ffffff;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin-top: 70px;
+}
+
+.fil {
+  display: flex;
+  position: fixed;
+  right: 30px;
+  align-items: center;
+}
+
+.esp {
+  background-color: #ffffff;
+  width: auto;
+  height: 90px;
+  display: flex;
+  margin: auto;
+  margin-top: 70px;
+}
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+  padding: 20px;
+  background-color: #f0f0f0; /* Color de fondo gris */
+  border-radius: 5px;
+}

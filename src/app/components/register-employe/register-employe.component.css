@@ -1,0 +1,199 @@
+/* styles.css */
+
+/* Estilos para el contenedor principal */
+.container {
+  height: auto;
+  width: auto;
+  background-color: #ffffff;
+
+
+}
+
+/* Estilos para la barra superior */
+/* Estilos para la barra superior */
+/* Estilos para la barra superior */
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centrar horizontalmente */
+  height: 50px;
+  width: 100%;
+  margin-top: 70px;
+  background-color: #123292;
+  font-family: 'M PLUS Rounded 1c';;
+
+}
+
+/* Estilos para el texto dentro de la barra */
+.bar h1 {
+  text-align: center;
+  font-size: 36px;
+  font-family: 'M PLUS Rounded 1c';
+  line-height: 1; /* Ajustar según sea necesario */
+  color: #ffffff;
+  margin: 0; /* Eliminar el margen predeterminado del h1 */
+}
+
+
+
+/* Estilos para el formulario */
+
+
+.form {
+
+  width: 600px;
+
+
+}
+
+.form {
+  display: grid;
+
+  grid-column-gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; /* Esto centrará horizontalmente el formulario */
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.form-column {
+  grid-column: span 1;
+}
+
+.background-color{
+  background-color: #c1c0c0;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; /* Para centrar horizontalmente */
+}
+
+
+/* Estilos para el texto del formulario */
+.text-3,
+.text-4,
+.text-5,
+.text-6 {
+  text-align: center;
+  font-size: 15px;
+  font-family: 'M PLUS Rounded 1c';
+  line-height: auto;
+  color: #000000;
+}
+
+/* Estilos para los elementos de entrada y selección en el formulario */
+.input-container {
+  width: calc(100% - 20px);
+  margin-bottom: 10px;
+
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="time"],
+select {
+  width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  color: #827b9d;
+
+}
+
+/* Efecto hover para los elementos de entrada y selección */
+input[type="text"]:hover,
+input[type="date"]:hover,
+input[type="email"]:hover,
+input[type="time"]:hover,
+select:hover {
+  border: 1px solid #3498db;
+}
+
+/* Efecto hover para el botón */
+button:hover {
+  background-color: #287bbc;
+
+}
+
+button {
+  margin-bottom: 30px;
+  background-color: #2839bc;
+  color: #fff; /* Color de texto blanco */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Esquinas redondeadas */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease;
+}
+
+/* Estilos para la tabla */
+.table {
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'M PLUS Rounded 1c';
+}
+
+/* Estilos para la barra de búsqueda */
+.search-bar {
+  margin-bottom: 20px;
+}
+
+/* Estilos para la tabla de empleados */
+.employee-table {
+  width: auto;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.employee-table th,
+.employee-table td {
+  border: 1px solid #190757;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Estilos para las filas pares de la tabla */
+.employee-table th {
+  background-color: #17034e;
+  color: white;
+}
+
+.employee-table tbody tr:nth-child(even) {
+  background-color: #a5afe9;
+}
+
+/* Efecto hover para las filas de la tabla */
+.employee-table tbody tr:hover {
+  background-color: #dae6f5;
+}
+
+/* Estilos para el contenedor de selección */
+.select-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+  gap: 20px;
+}
+
+/* Media query para responsividad */
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+  .form {
+    grid-template-columns: 1fr;
+  }
+  .form-column {
+    grid-column: span 1;
+  }
+  .select-container {
+    grid-template-columns: 1fr;
+  }
+}

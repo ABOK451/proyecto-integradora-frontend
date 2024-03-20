@@ -5,5 +5,5 @@ export interface Administrador {
   Region: string;
   NumEmpleadosPorTurno: string;
   PeriodosTraining: string;
-  root: string;
+  root: boolean;
 }

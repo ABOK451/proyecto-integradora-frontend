@@ -1,110 +1,38 @@
-<style>
-  /* CSS */
- .content {
-  margin-top: 66px;
-  }
- .material-symbols-outlined{
-    display: flex;
-    font-size: 56px;
-    margin-left: auto;
-    align-items: center;
-  }
-.app {
-    font-family: "M PLUS Rounded 1c",
-    sans-serif;
-    font-weight: 800;
-    font-style: normal;
-    font-size: 20px;
-  }
-  .top-logo {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    width: auto;
-    height: 90px;
-    display: flex;
-    margin: auto;
-  }
 
-  .top-bar, .sub-bar {
-    background-color: #011245;
-    color: white;
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: auto;
-    height: 66px;
-    margin: auto;
-    justify-content: space-between;
-}
-
-  .menu {
-    text-align: center;
-}
-
-.boton {
-
-    display: inline-block;
-    padding: 18px 40px;
-    background-color: #011245;
-    color: white;
-    text-decoration: none;
-    border-left: 2px solid white;
-    border-right: 2px solid white;
-    border-bottom: none;
-}
-
-.boton-right {
-    display: inline-block;
-    padding: 18px 40px;
-    background-color: #011245;
-    color: white;
-    text-decoration: none;
-    border-left: 2px solid white;
-    border-right: 4px solid white;
-    border-top: none;
-    border-bottom: none;
-}
-
-.boton-left {
-    display: inline-block;
-    padding: 18px 40px;
-    background-color: #011245;
-    color: white;
-    text-decoration: none;
-    border-left: 4px solid white;
-    border-right: 2px solid white;
-    border-top: none;
-    border-bottom: none;
-}
-
-.boton-right:hover,
-.boton-left:hover,
-.boton:hover {
-    background-color: #003366;
-}
-
-</style>
-
-
-<body>
-    <div class="top-logo">
-      <a routerLink="/home" class="logo-link"></a>
-        <img src="assets/logo.jpeg" alt="Logo de la empresa">
-        <span class="material-symbols-outlined">
-          account_circle
-          </span>
-    </div>
-    <div class="app">
-        <div class="top-bar">
-            <div class="menu">
-                <a href="/home" class="boton-left">Inicio</a>
-                <a href="#" class="boton">Administración</a>
-                <a href="#" class="boton">Solicitud</a>
-                <a href="#" class="boton">Calendario</a>
-                <a href="#" class="boton-right">Salir</a>
-            </div>
+<div class="top-logo">
+  <a class="logo-link" href="home"><img src="assets/logo.jpeg" alt="Logo de la empresa" width="auto" height="90px" style="position: fixed;"></a>
+    <div class="menu-ver">
+      <a class="acc"> <span class="material-symbols-outlined" style=" font-size: 56px;">
+        account_circle
+        </span></a>
+        <div class="menu-ver-acc">
+            <a href="">Datos</a>
+            <a href="">Configuracion</a>
+            <a href="">Salir</a>
         </div>
     </div>
 
-</body>
+</div>
+<div class="app">
+  <div class="top-bar">
+      <div class="menu">
+          <a href="/inicio" class="boton-left">Inicio</a>
+          <div class="dropdown">
+            <a class="boton">Agregar</a>
+            <div class="dropdown-content">
+              <a href="/admin">Administrador</a>
+              <a href="/rg_emp">Empleado</a>
+              <a href="#">Usuario</a>
+              <a href="/contrato">Contratos</a>
+              <a href="/area">Area</a>
+              <a href="/sede">Ciudad</a>
+              <a href="#">Actividades</a>
+            </div>
+          </div>
+          
+          <a href="#" class="boton">Solicitud</a>
+          <a href="#" class="boton-right">Gantt</a>
+      </div>
+  </div>
+</div>
 

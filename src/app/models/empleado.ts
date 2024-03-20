@@ -1,20 +1,22 @@
 export interface Empleado {
-  Nombre: string;
-    AppE: string;
-    ApmE: string;
-    FechaNac: Date;
-    Correo: string;
-    Region: string;
-    AreaTrabajo: string;
-    Contrato: string;
+    Nombre: String,
+    AppE: String,
+    ApmE: String,
+    FechaNac: Date,
+    Correo: String,
+    Region: String,
+    AreaTrabajo: String,
+    Departamento: String,
+    Contrato: String,
     TurnoActual: {
-      HoraInicial: Date;
-      HoraFinal: Date;
-  },
-  HorarioTraining: {
-      FechaInicio: Date;
-      FechaFin: Date;
-      HoraInicial: Date;
-      HoraFinal: Date;
-  }
+        HoraInicial: Date,
+        HoraFinal: Date
+    },
+    HorarioTraining: {
+        Fecha: Date,
+        HoraInicial: Date,
+        HoraFinal: Date
+    },
+    NombreAdmin:String,
+    FechaDeIngreso: Date
 }

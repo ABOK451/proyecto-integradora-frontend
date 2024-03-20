@@ -1,0 +1,175 @@
+<!-- register-employe.component.html -->
+
+<app-navigation-bar></app-navigation-bar>
+
+<div class="container">
+  <div class="bar">
+    <h1>Registro Empleado</h1>
+  </div>
+
+  <div class="background-color">
+
+
+    <form (submit)="submitForm()"   class="form">
+      <div class="form-column">
+        <p class="text-3">Nombre</p>
+        <input type="text" name="Nombre" [(ngModel)]="empleado.Nombre" placeholder="Nombre" class="text-4" />
+
+        <p class="text-4">Apellido Paterno</p>
+        <input type="text" name="AppE" [(ngModel)]="empleado.AppE" placeholder="Apellido Paterno" class="text-5" />
+
+        <p class="text-4">Apellido Materno</p>
+        <input type="text" name="AppE" [(ngModel)]="empleado.ApmE" placeholder="Apellido Materno" class="text-5" />
+
+        <p class="text-5">Fecha de Nacimiento</p>
+        <input type="date" name="FechaNac" [(ngModel)]="empleado.FechaNac" class="text-6" />
+
+        <p class="text-5">Correo</p>
+        <input type="email" name="Correo" [(ngModel)]="empleado.Correo" class="text-6" />
+
+
+
+        <p class="text-5">Region</p>
+        <select name="Region" [(ngModel)]="empleado.Region" class="text-6">
+          <option *ngFor="let sede of sedes" [value]="sede.nombre">{{ sede.nombre }}</option>
+        </select>
+
+        <!-- Área de Trabajo -->
+        <p class="text-5">Area</p>
+        <select name="Area" [(ngModel)]="empleado.AreaTrabajo" class="text-6">
+          <option *ngFor="let area of areas" [value]="area.NombreArea">{{ area.NombreArea }}</option>
+        </select>
+
+        <!-- Departamento -->
+        <p class="text-5">Departamento</p>
+        <select name="Departamento" [(ngModel)]="empleado.Departamento" class="text-6">
+          <option *ngFor="let departamento of departamentos" [value]="departamento.NombreDepartamento">{{ departamento.NombreDepartamento }}</option>
+        </select>
+      </div>
+
+
+      <div class="form-column">
+
+
+        <p class="text-5">Contrato</p>
+        <select name="Departamento" [(ngModel)]="empleado.Contrato" class="text-6">
+          <option *ngFor="let contrato of contratos" [value]="contrato.TipoContrato">{{ contrato.TipoContrato }}</option>
+        </select>
+
+
+
+      <p class="text-5">Hora Inicial del Turno</p>
+      <input type="time" name="TurnoActual.HoraInicial" [(ngModel)]="empleado.TurnoActual.HoraInicial" class="text-6" />
+
+      <p class="text-5">Hora Final del Turno</p>
+      <input type="time" name="TurnoActual.HoraFinal" [(ngModel)]="empleado.TurnoActual.HoraFinal" class="text-6" />
+
+
+      <p class="text-5">Fecha del Training</p>
+      <input type="date" name="Training.Fecha" [(ngModel)]="empleado.HorarioTraining.Fecha" class="text-6" />
+
+      <p class="text-5">Hora Inicial del Horario Training</p>
+      <input type="time" name="HorarioTraining.HoraInicial" [(ngModel)]="empleado.HorarioTraining.HoraInicial" class="text-6" />
+
+      <p class="text-5">Hora Final del Horario Training</p>
+      <input type="time" name="HorarioTraining.HoraFinal" [(ngModel)]="empleado.HorarioTraining.HoraFinal" class="text-6" />
+
+
+      <p class="text-5">Nombre del Admin a Cargo</p>
+        <select name="Departamento" [(ngModel)]="empleado.NombreAdmin" class="text-6">
+          <option *ngFor="let administrador of administradores" [value]="empleado.NombreAdmin">{{ administrador.NombreAdmin }}</option>
+        </select>
+
+      <p class="text-5">Fecha de Ingreso </p>
+      <input type="date" name="Fecha de Ingreso" [(ngModel)]="empleado.FechaDeIngreso" class="text-6" />
+      </div>
+
+
+
+      <!-- Add a submit button -->
+      <button type="submit" class="text-1-1" >Agregar</button>
+      <button (click)="updateEmpleado(empleado)" [disabled]="!edit">
+        <i class="fas fa-edit"></i> Actualizar
+      </button>
+    </form>
+
+
+
+  </div>
+
+
+  <div class="table">
+    <div class="bar">
+      <h1>Empleados Registrados</h1>
+    </div>
+    <div class="filter-bar">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar por nombre">
+      <select [(ngModel)]="selectedDepartment">
+        <option value="">Todos los departamentos</option>
+        <option *ngFor="let departamento of departamentos" [value]="departamento.NombreDepartamento">{{ departamento.NombreDepartamento }}</option>
+      </select>
+      <select [(ngModel)]="selectedArea">
+        <option value="">Todas las áreas</option>
+        <option *ngFor="let area of areas" [value]="area.NombreArea">{{ area.NombreArea }}</option>
+      </select>
+      <select [(ngModel)]="selectedContrato">
+        <option value="">Todas los Contratos</option>
+        <option *ngFor="let contrato of contratos" [value]="contrato.TipoContrato">{{ contrato.TipoContrato }}</option>
+      </select>
+      <button (click)="clearFilters()">Limpiar</button>
+    </div>
+
+
+
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido Paterno</th>
+          <th>Apellido Materno</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Correo Electronico</th>
+          <th>Region</th>
+          <th>Area de Trabajo</th>
+          <th>Departamento</th>
+          <th>Fecha De Ingreso</th>
+          <th>Contrato</th>
+          <th>Actualizar</th>
+          <th>Eliminar</th>
+          <!-- Agrega más encabezados según tus campos -->
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Itera sobre la lista de empleados filtrados y muestra cada uno en una fila -->
+        <tr *ngFor="let empleado of filteredEmpleados">
+          <td>{{ empleado.Nombre }}</td>
+          <td>{{ empleado.AppE }}</td>
+          <td>{{ empleado.ApmE }}</td>
+          <td>{{ empleado.FechaNac | date:'dd/MM/yyyy' }}</td>
+          <td>{{ empleado.Correo }}</td>
+          <td>{{ empleado.Region }}</td>
+          <td>{{ empleado.AreaTrabajo }}</td>
+          <td>{{ empleado.Departamento }}</td>
+          <td>{{ empleado.FechaDeIngreso | date:'dd/MM/yyyy' }}</td>
+          <td>{{ empleado.Contrato }}</td>
+          <td>
+            <button [routerLink]="['/rg_emp/edit', empleado.Correo]">
+              <i class="fas fa-edit"></i> Actualizar
+            </button>
+          </td>
+          <td>
+            <!-- Botones de actualizar y eliminar -->
+            <button (click)="deleteEmpleado(empleado)">
+              <i class="fas fa-trash"></i> Eliminar
+            </button>
+          </td>
+          <!-- Agrega más celdas según tus campos -->
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  </div>
+
+
